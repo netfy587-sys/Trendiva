@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trendiva | Everyday Home Cooking, Meal Planning and Kitchen Skills</title>
+<meta name="description" content="Trendiva is an independent reading space about everyday home cooking: simple kitchen skills, relaxed meal planning and pantry basics that make cooking at home easier.">
+
+<!-- Google AdSense / Google Ads script: paste your site code here (inside head) -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --plum:#3B2142;
+  --plum-2:#5A3463;
+  --saffron:#F0B429;
+  --saffron-d:#D99A0B;
+  --white:#FFFFFF;
+  --paper:#F6F3F8;
+  --text:#2A2230;
+  --muted:#645A6C;
+  --line:#E0D9E6;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--white);color:var(--text);line-height:1.75;font-size:17px;width:100%;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--plum-2)}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:3px solid var(--saffron-d);outline-offset:3px}
+h1,h2,h3{font-family:'Gloock',Georgia,serif;font-weight:400;line-height:1.15;color:var(--plum)}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.narrow{max-width:780px}
+
+/* header */
+header{background:var(--white);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--plum)}
+.brand span{font-family:'Gloock',serif;font-size:1.65rem}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--plum)}
+
+/* hero: centered text, arched photo row */
+.hero{background:var(--paper);padding:78px 0 0;text-align:center;overflow:hidden}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);max-width:880px;margin:0 auto 22px}
+.hero p{max-width:640px;margin:0 auto 32px;color:var(--muted);font-size:1.12rem}
+.btn{display:inline-block;background:var(--plum);color:#fff;text-decoration:none;padding:15px 32px;border-radius:50px;font-weight:600;transition:background .2s}
+.btn:hover{background:var(--plum-2)}
+.btn.sun{background:var(--saffron);color:var(--plum)}
+.btn.sun:hover{background:var(--saffron-d)}
+.arches{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:20px;align-items:end;margin-top:56px}
+.arch{border-radius:999px 999px 0 0;overflow:hidden;background:#cdbfd3}
+.arch img{width:100%;object-fit:cover}
+.arch:nth-child(1) img{height:300px}
+.arch:nth-child(2) img{height:400px}
+.arch:nth-child(3) img{height:300px}
+
+/* sections */
+section{padding:84px 0}
+.sec-head{max-width:700px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(2rem,3.6vw,2.8rem);margin-bottom:14px}
+.sec-head p{color:var(--muted)}
+.tint{background:var(--paper)}
+
+/* intro */
+.intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.intro h2{font-size:clamp(2rem,3.4vw,2.7rem)}
+.intro p{margin-bottom:20px;color:var(--muted)}
+
+/* three principles */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pr{border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;background:var(--white)}
+.pr .dot{width:50px;height:50px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.pr h3{font-size:1.5rem;margin-bottom:10px}
+.pr p{color:var(--muted);font-size:.99rem}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split.flip .pic{order:2}
+.pic{border-radius:var(--radius);overflow:hidden;background:#cdbfd3}
+.pic img{width:100%;height:100%;min-height:440px;object-fit:cover}
+.split h2{font-size:clamp(1.9rem,3.2vw,2.6rem);margin-bottom:18px}
+.split p{color:var(--muted);margin-bottom:18px}
+
+/* week plan table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:680px}
+th,td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--line);font-size:.97rem;vertical-align:top}
+th{background:var(--plum);color:#fff;font-weight:600}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;color:var(--plum)}
+
+/* pantry */
+.pantry{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.pn{background:var(--white);border-radius:var(--radius);padding:28px;border-top:5px solid var(--saffron)}
+.pn h3{font-size:1.3rem;margin-bottom:12px}
+.pn ul{list-style:none}
+.pn li{padding:6px 0;color:var(--muted);font-size:.97rem;border-bottom:1px dashed var(--line)}
+.pn li:last-child{border-bottom:none}
+
+/* skills strips */
+.strip{display:grid;grid-template-columns:200px 1fr;gap:30px;padding:28px 0;border-top:1px solid var(--line)}
+.strip:last-child{border-bottom:1px solid var(--line)}
+.strip h3{font-size:1.4rem}
+.strip p{color:var(--muted)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal figure{margin:0}
+.gal .ph{border-radius:var(--radius);overflow:hidden;background:#cdbfd3}
+.gal img{width:100%;height:260px;object-fit:cover}
+.gal figcaption{font-size:.92rem;color:var(--muted);padding-top:10px}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:20px;color:var(--plum)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--saffron-d)}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:14px;color:var(--muted)}
+
+/* ad slots */
+.ad-slot{width:100%;max-width:1200px;margin:0 auto;padding:30px 28px;min-height:120px;text-align:center}
+
+/* disclaimer */
+.disclaimer{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--saffron);border-radius:var(--radius);padding:32px 36px}
+.disclaimer h3{font-size:1.45rem;margin-bottom:12px}
+.disclaimer p{color:var(--muted);font-size:.97rem;margin-bottom:10px}
+
+/* footer */
+footer{background:var(--plum);color:#CDBFD3;padding:56px 0 32px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:32px}
+footer .brand,footer .brand span{color:#fff}
+.foot p{max-width:420px;font-size:.95rem;margin-top:14px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:10px}
+.foot a{color:#fff;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.copy{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;font-size:.88rem}
+
+@media(max-width:960px){
+  nav{display:none}
+  .intro,.split{grid-template-columns:1fr;gap:34px}
+  .split.flip .pic{order:0}
+  .principles{grid-template-columns:1fr}
+  .pantry{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .strip{grid-template-columns:1fr;gap:8px}
+  .arches{gap:12px}
+  .arch:nth-child(1) img,.arch:nth-child(3) img{height:200px}
+  .arch:nth-child(2) img{height:270px}
+  .pic img{min-height:300px}
+  section{padding:58px 0}
+}
+@media(max-width:560px){.pantry,.gal{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Trendiva home">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#3B2142"/><path d="M12 14h16M14 14c0 8 2 12 6 12s6-4 6-12" fill="none" stroke="#F0B429" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 26v4" stroke="#F0B429" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Trendiva</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#basics">Kitchen basics</a></li>
+        <li><a href="#plan">Meal planning</a></li>
+        <li><a href="#pantry">Pantry</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <h1>Cooking at home, made calm and simple.</h1>
+    <p>Trendiva is an independent reading space about everyday home cooking. We explain kitchen skills, relaxed meal planning and pantry basics in plain language, so that making a meal feels easier and more enjoyable.</p>
+    <a class="btn" href="#about">Start reading</a>
+    <div class="arches">
+      <div class="arch"><img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=700&q=80" alt="Fresh vegetables laid out for cooking" loading="eager"></div>
+      <div class="arch"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80" alt="Person cooking in a bright home kitchen" loading="eager"></div>
+      <div class="arch"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80" alt="Colourful bowl of fresh salad" loading="eager"></div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section id="about">
+  <div class="wrap intro">
+    <h2>Why Trendiva exists</h2>
+    <div>
+      <p>Many people want to cook more at home but feel stuck at the same questions: what should I make tonight, how do I use up what is in the fridge, and why does my food never taste quite as good as I hoped? These are everyday problems, and they usually have simple answers.</p>
+      <p>Trendiva was created to share those answers calmly. Our articles look at one idea at a time, such as how heat changes flavour, how to plan a week of meals without stress, or which basics are worth keeping in the cupboard.</p>
+      <p>You do not need special equipment or expert training. A good knife, a couple of pans, curiosity and a little planning are enough. We write for beginners and for people who simply want to cook with more ease.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <!-- Google ad unit 1: paste your ad code here -->
+  <!--
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- PRINCIPLES -->
+<section id="basics" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Three ideas behind better home cooking</h2>
+      <p>Most good meals come down to a few habits repeated with attention.</p>
+    </div>
+    <div class="principles">
+      <div class="pr">
+        <div class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B2142" stroke-width="2" stroke-linecap="round"><path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9z"/></svg></div>
+        <h3>Understand heat</h3>
+        <p>High heat browns and builds flavour, gentle heat softens and keeps things tender. Knowing which one a recipe needs is often more important than the ingredient list.</p>
+      </div>
+      <div class="pr">
+        <div class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B2142" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3>Prepare before you start</h3>
+        <p>Chopping, measuring and laying things out before the pan gets hot keeps cooking relaxed. Chefs call it mise en place, and it works just as well in a home kitchen.</p>
+      </div>
+      <div class="pr">
+        <div class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B2142" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M12 4v16"/></svg></div>
+        <h3>Season and taste</h3>
+        <p>Add salt, acid and herbs a little at a time and taste as you go. Small adjustments at the end often lift a dish more than anything else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 1 -->
+<section>
+  <div class="wrap split">
+    <div class="pic"><img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=900&q=80" alt="Hands preparing food on a wooden board" loading="lazy"></div>
+    <div>
+      <h2>Start with a few reliable skills</h2>
+      <p>Confidence in the kitchen grows from a small set of repeatable techniques. Learning to chop safely, sauté vegetables, cook rice or pasta properly and roast a tray of ingredients covers an enormous number of everyday meals.</p>
+      <p>Practise one skill until it feels natural before moving on. A simple stir-fry, made a few times with different vegetables, teaches heat control, timing and seasoning all at once. The more familiar the method, the less you need to follow a recipe word for word.</p>
+      <p>Mistakes are part of the process. A slightly over-browned onion or an under-salted sauce teaches you what to do differently next time. Cooking is a habit built through gentle repetition, not a test you pass or fail.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS STRIPS -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Everyday techniques in plain words</h2>
+      <p>Cooking vocabulary can sound intimidating. Here is what common terms actually mean.</p>
+    </div>
+    <div class="strip"><h3>Sauté</h3><p>Cooking small pieces of food quickly in a little fat over fairly high heat, stirring or tossing often. Good for vegetables, sliced meat and aromatics like onion and garlic.</p></div>
+    <div class="strip"><h3>Simmer</h3><p>Cooking in liquid that bubbles very gently. Simmering softens food and blends flavours in soups, stews, lentils and sauces without breaking them apart.</p></div>
+    <div class="strip"><h3>Roast</h3><p>Cooking food in dry oven heat so the outside browns while the inside becomes tender. A tray of chopped vegetables with oil and salt is the easiest place to start.</p></div>
+    <div class="strip"><h3>Rest</h3><p>Letting cooked food sit for a few minutes before serving. Resting helps juices settle, lets heat spread evenly and makes slicing and eating easier.</p></div>
+  </div>
+</section>
+
+<!-- MEAL PLAN -->
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>A relaxed way to plan the week</h2>
+      <p>Meal planning does not have to be strict. A simple rhythm of themes can remove the daily &ldquo;what should we eat&rdquo; question. This is a general example you can adapt to your own tastes and household.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Day</th><th>Theme</th><th>Easy idea</th><th>Planning tip</th></tr></thead>
+        <tbody>
+          <tr><td>Monday</td><td>Soup or lentils</td><td>Vegetable soup with bread</td><td>Cook extra for lunch the next day</td></tr>
+          <tr><td>Tuesday</td><td>Pasta or noodles</td><td>Tomato pasta with greens</td><td>Use a quick sauce from pantry staples</td></tr>
+          <tr><td>Wednesday</td><td>Tray bake</td><td>Roasted vegetables with grains</td><td>One tray means less washing up</td></tr>
+          <tr><td>Thursday</td><td>Rice bowl</td><td>Rice with stir-fried vegetables</td><td>Make extra rice and cool it quickly</td></tr>
+          <tr><td>Friday</td><td>Cook what you like</td><td>A favourite or something new</td><td>Keep this day flexible</td></tr>
+          <tr><td>Weekend</td><td>Slow or shared</td><td>A stew, bake or family meal</td><td>Use leftovers to reduce waste</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PANTRY -->
+<section id="pantry" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>A well-stocked pantry, kept simple</h2>
+      <p>A handful of basics lets you put together a meal even on days when shopping did not happen.</p>
+    </div>
+    <div class="pantry">
+      <div class="pn"><h3>Grains</h3><ul><li>Rice</li><li>Pasta</li><li>Oats</li><li>Flour</li></ul></div>
+      <div class="pn"><h3>Legumes</h3><ul><li>Lentils</li><li>Chickpeas</li><li>Beans</li><li>Split peas</li></ul></div>
+      <div class="pn"><h3>Flavour</h3><ul><li>Salt and pepper</li><li>Cooking oil</li><li>Vinegar or lemon</li><li>Dried herbs and spices</li></ul></div>
+      <div class="pn"><h3>Fresh staples</h3><ul><li>Onions</li><li>Garlic</li><li>Potatoes</li><li>Seasonal vegetables</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 2 -->
+<section>
+  <div class="wrap split flip">
+    <div class="pic"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80" alt="Bowl of warm homemade soup" loading="lazy"></div>
+    <div>
+      <h2>Cooking with what you have</h2>
+      <p>Some of the best home meals begin with a look in the fridge rather than a recipe. A few vegetables, a grain and a flavour base can become soup, fried rice, a tray bake or a filling for wraps.</p>
+      <p>Try thinking in formulas instead of fixed recipes: something starchy, something green, something with texture and something to brighten it, like lemon or herbs. This approach reduces waste and helps you cook with confidence even when ingredients change from week to week.</p>
+      <p>Store leftovers properly, label them if it helps and enjoy them within a sensible time. Reheated food can become the foundation of a new meal, and planning for leftovers is one of the quietest ways to save both time and money.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>From the kitchen table</h2>
+      <p>Simple food, shared and enjoyed without fuss.</p>
+    </div>
+    <div class="gal">
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" alt="Table set with shared homemade dishes" loading="lazy"></div><figcaption>Shared meals are the heart of home cooking.</figcaption></figure>
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Assorted fresh vegetables" loading="lazy"></div><figcaption>Seasonal produce keeps meals varied.</figcaption></figure>
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80" alt="Plated meal with fresh ingredients" loading="lazy"></div><figcaption>Colour and texture make plates inviting.</figcaption></figure>
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=600&q=80" alt="Freshly prepared dish on a table" loading="lazy"></div><figcaption>A simple dish, cooked with attention.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <!-- Google ad unit 2: paste your ad code here -->
+  <!--
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap narrow">
+    <div class="sec-head"><h2>Common questions</h2></div>
+    <details>
+      <summary>Is Trendiva a recipe store or food delivery service?</summary>
+      <p>No. Trendiva is an informational website. We do not sell food, cookware, meal kits or any other products, and we do not deliver meals. The pages are written only to share general cooking ideas and knowledge.</p>
+    </details>
+    <details>
+      <summary>I am a complete beginner. Where should I start?</summary>
+      <p>Choose two or three simple meals you enjoy eating, such as pasta with vegetables or a rice bowl, and cook them repeatedly. Familiarity builds confidence faster than trying a new recipe every day.</p>
+    </details>
+    <details>
+      <summary>How can I reduce food waste at home?</summary>
+      <p>Plan a few meals before shopping, check what you already have, store food properly and use leftovers in new dishes. Cooking soups, stir-fries and tray bakes is a good way to use up ingredients.</p>
+    </details>
+    <details>
+      <summary>Do I need expensive equipment?</summary>
+      <p>Not at all. A sharp knife, a chopping board, a frying pan, a saucepan and a baking tray cover most everyday cooking. Extra tools can be added later if you find you truly need them.</p>
+    </details>
+    <details>
+      <summary>How do I keep food safe in my kitchen?</summary>
+      <p>Wash your hands, keep raw and cooked foods separate, cook food thoroughly and refrigerate leftovers promptly. For detailed guidance, refer to your local food safety authority.</p>
+    </details>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section style="padding-top:0">
+  <div class="wrap narrow">
+    <div class="disclaimer" role="note">
+      <h3>Disclaimer</h3>
+      <p>The content on Trendiva is provided for general informational and educational purposes only. It reflects common observations about home cooking and should not be treated as professional culinary, medical, dietary or nutritional advice.</p>
+      <p>Food allergies, intolerances and health conditions differ from person to person. Always read ingredient labels, follow food safety guidelines from your local authority and consult a qualified health professional about dietary needs. Cooking involves heat and sharp tools, so please take care in the kitchen. Images are used for illustration only and do not represent or endorse any specific product, brand or service.</p>
+      <p>Trendiva does not sell products or services and makes no guarantees about results from applying the ideas shared here. Any decision you make is your own responsibility. Third-party advertising may appear on this site, and we are not responsible for the content of external advertisers.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top" aria-label="Trendiva home">
+          <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#F0B429"/><path d="M12 14h16M14 14c0 8 2 12 6 12s6-4 6-12" fill="none" stroke="#3B2142" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 26v4" stroke="#3B2142" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span>Trendiva</span>
+        </a>
+        <p>An independent reading space about everyday home cooking, relaxed planning and simple kitchen skills.</p>
+      </div>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="copy">&copy; 2026 Trendiva. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
